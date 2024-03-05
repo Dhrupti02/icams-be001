@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Update Course{% else %}Create New Course{% endif %}</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Update Course{% else %}Create New Course{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="{% if form.instance.pk %}Update{% else %}Create{% endif %}">
+    </form>
+    <a href="{% url 'course_list' %}">Back to Course List</a>
+</body>
+</html>

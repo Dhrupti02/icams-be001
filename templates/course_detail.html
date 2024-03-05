@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Course Detail</title>
+</head>
+<body>
+    <h1>Course Detail</h1>
+    <p><strong>Course Name:</strong> {{ course.course_name }}</p>
+    <p><strong>Time Duration:</strong> {{ course.time_duration }}</p>
+    <p><strong>Description:</strong> {{ course.description }}</p>
+    <p><strong>Instructor:</strong> {{ course.instructor }}</p>
+    <a href="{% url 'course_update' course.pk %}">Update Course</a>
+    <form action="{% url 'course_delete' course.pk %}" method="post">
+        {% csrf_token %}
+        <input type="submit" value="Delete Course">
+    </form>
+    <a href="{% url 'course_list' %}">Back to Course List</a>
+</body>
+</html>
